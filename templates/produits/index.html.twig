@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitsController!{% endblock %}
+
+{% block body %}
+    <!-- Section -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<div id="aside" class="col-md-3 filtrer">
+						{% include 'produits/_filtrer.html.twig' with {form: form} only  %} 
+						{# with {form: form} only #}
+					</div>
+    
+                    <div class="col-md-9">
+                        <div class="section-title text-center">
+							<h3 class="title">Tous Les Produits</h3>
+						</div>
+
+                        <!-- STORE -->
+                                    <div class="store-filter clearfix">
+                                            <div class="store-sort">
+                                                <label>
+                                                    TRIER PAR:
+                                                    <select class="input-select">
+                                                        <option value="0">Prix croissant</option>
+                                                        <option value="0">Prix décroissant</option>
+                                                        <option value="1">Les plus demandés</option>
+                                                    </select>
+                                                </label>
+
+                                                <label>
+                                                   <p class="titre-list-prod"> il y a {{ prod['value']}} produits </p>
+                                                </label>
+                                            </div>
+                                            <ul class="store-grid">
+                                                <li class="active"><i class="fa fa-th"></i></li>
+                                                <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                                            </ul>
+                                    </div>
+                                    <!-- /STORE -->
+
+                        <!-- product -->
+                        {% for produit in produits %}
+                            {% include 'produits/_card.html.twig'  %}
+                        {% endfor %}
+                        <!-- /product -->
+                    </div>
+
+
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /Section -->
+{% endblock %}

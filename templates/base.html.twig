@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} Welcome! {% endblock %}</title>
+        <!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/slick.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset('cards/style.css') }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/slick-theme.css') }}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        {% block stylesheets %}{% endblock %}
+		{# <style>
+			.grid{
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-gap: 30px; 
+			}
+		</style> #}
+		<style>
+			.filtre{
+				display: block;
+				position: sticky;
+				top: 20px; 
+			}
+		</style> 
+    </head>
+    <body>
+
+        {% include 'shared/navbar.html.twig' %}
+            {% block body %}{% endblock %}
+        {% include 'shared/footer.html.twig' %}
+
+
+        {% block javascripts %}{% endblock %}
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('js/slick.min.js') }}"></script>
+		<script src="{{ asset('js/nouislider.min.js') }}"></script>
+		<script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
+		<script src="{{ asset('js/main.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+# App\Entity\Produits:
+#     produits_{1..50}:
+#         libel: <text(10)>
+#         prix: <numberBetween(50, 40000)>
+#         etat: <name()>
+#         quantite: <name()>
+#         contenu: <text(100)>
+#         couleur: <name()>
+#         featuredImage: https://picsum.photos/id/<numberBetween(400, 800)>/290/180
+#         sousCategorie: <numberBetween(1, 5)>
+#         marque: <name()>
+#         processeur: <name()>
+#         carteGraphique: <name()> 
+#         disqueDur: <name()>
+#         memoire: <name()>
+#         systemeExploitation: <name()>
+        

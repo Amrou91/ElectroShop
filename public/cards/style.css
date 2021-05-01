@@ -1,0 +1,21 @@
+.filtrer {
+    background:linear-gradient(60deg, #9c9898, transparent);
+    border-style: double;
+    border-radius: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 0.9;
+} 
+.aside-title {
+    color: red;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.titre-list-prod { 
+    text-align: center; 
+    color: red;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+

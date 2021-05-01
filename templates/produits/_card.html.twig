@@ -1,0 +1,27 @@
+<div class="col-md-4 col-xs-6">
+    <div class="product mb-3">
+        <div class="product-img" style="height: 200px;">
+            <img src="/images/produits/{{produit.featuredImage}}" alt="">
+                {# <div class="product-label">
+                    <span class="sale">-30%</span>
+                </div> #}
+        </div>
+        <div class="product-body">
+            <p class="product-category">{{ produit.sousCategorie }}</p>
+            <h3 class="product-name"><a href="#">{{ produit.libel }} /{{ produit.processeur }} /{{ produit.memoire }} /{{ produit.disqueDur }} /{{ produit.carteGraphique }} /{{ produit.systemeExploitation }}</a></h3>
+            <br> 
+            <p>{{ produit.marque }}</p>
+            <br> 
+            <h4 class="product-price">{{ produit.prix |number_format(1, '.', ',') }} TND</h4>
+            <div class="product-rating">
+            </div>
+            <div class="product-btns">
+                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i></button>
+                <button class="quick-view"><i class="fa fa-eye"></i></button>
+            </div>
+        </div>
+        <div class="add-to-cart">
+            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+        </div>
+    </div>
+</div>
