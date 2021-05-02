@@ -6,6 +6,8 @@ use App\Data\SearchData;
 use App\Entity\Produits;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method Produits|null find($id, $lockMode = null, $lockVersion = null)
@@ -15,9 +17,17 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProduitsRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    private $paginator;
+    // private $request;
+
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Produits::class);
+        $this -> paginator =  $paginator;
+        // $this -> request =  $request;
+
     }
  
 
@@ -36,7 +46,7 @@ class ProduitsRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Produits[] Returns an array of Users objects
+     * @return PaginatorInterface Returns an array of Users objects
      */
     public function Search(SearchData $search)
     {
@@ -88,7 +98,12 @@ class ProduitsRepository extends ServiceEntityRepository
                                      ->setParameter('systemeExploitation', $search->systemeExploitation );
                     }
             
-        return $query->getQuery()->getResult();
+                $query= $query->getQuery()->getResult();
+            return $this -> paginator ->paginate(
+                $query, /* query NOT result */
+                $search->page, /*page number*/  
+                // $request->query->getInt('page', 1)
+                9 /*limit per page*/);
         
     }
 
