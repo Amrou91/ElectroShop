@@ -8,7 +8,7 @@
         </div>
         <div class="product-body">
             <p class="product-category">{{ produit.sousCategorie }}</p>
-            <h3 class="product-name"><a href="#">{{ produit.libel }} /{{ produit.processeur }} /{{ produit.memoire }} /{{ produit.disqueDur }} /{{ produit.carteGraphique }} /{{ produit.systemeExploitation }}</a></h3>
+            <h3 class="product-name"><a href="{{ path('produit_show', {'id': produit.id}) }}">{{ produit.libel }} /{{ produit.processeur }} /{{ produit.memoire }} /{{ produit.disqueDur }} /{{ produit.carteGraphique }} /{{ produit.systemeExploitation }}</a></h3>
             <br> 
             <p>{{ produit.marque }}</p>
             <br> 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Data\SearchData;
+use App\Entity\Produits;
 use App\Form\SearchType;
 use App\Repository\ProduitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProduitsController extends AbstractController
 {
+
+     /**
+     * @Route("/produits/{id}", name="produit_show", methods={"GET"})
+     */
+    public function show(Produits $produits)
+    {
+        return $this->render('produits/show.html.twig', [
+            'produit' => $produits,
+        ]);
+    } 
+
     /**
      * @Route("/produits", name="produits")
      */
@@ -30,4 +42,6 @@ class ProduitsController extends AbstractController
             'form' => $form ->createView()
         ]);
     }
+
+   
 }
