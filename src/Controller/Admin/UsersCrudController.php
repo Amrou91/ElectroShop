@@ -27,13 +27,13 @@ class UsersCrudController extends AbstractCrudController
         $detailUser=Action::new('detailUser','Detail', 'fa fa-user') 
                     ->linkToCrudAction(Crud::PAGE_DETAIL)
                     ->addCssClass('btn btn-info');
-        $editUser=Action::new('editUser','Edit', 'fa fa-edit') 
-                    ->linkToCrudAction(Crud::PAGE_EDIT)
-                    ->addCssClass('btn btn-primary');
+        // $editUser=Action::new('editUser','Edit', 'fa fa-edit') 
+        //             ->linkToCrudAction(Crud::PAGE_EDIT)
+        //             ->addCssClass('btn btn-primary');
         return $actions
                 // ->setPermission(Action::DELETE, 'ROLE_SUPER_ADMIN')
-                ->add(Crud::PAGE_INDEX, $detailUser)
-                ->add(Crud::PAGE_INDEX, $editUser);
+                ->add(Crud::PAGE_INDEX, $detailUser);
+                // ->add(Crud::PAGE_INDEX, $editUser);
     }
 
     public function configureFields(string $pageName): iterable

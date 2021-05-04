@@ -19,3 +19,61 @@
     font-weight: 900;
 }
 
+
+  .cf {
+    float: right;
+  }
+ 
+  .Switch {
+	position: relative;
+	float: right;
+	font-weight: bold;
+	color: #fff;
+	width: 60px;
+	height: 30px;
+	border-radius: 15px;
+	background: #0990aa;
+	cursor: pointer;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition   : background-color 0.3s ease-in-out;
+	-o-transition     : background-color 0.3s ease-in-out;
+	-ms-transition    : background-color 0.3s ease-in-out;
+}
+
+.Switch.list {
+	background: #fd7117;
+}
+
+.Switch span { 
+	position: relative;
+	display: inline-block; 
+	width: 25px; 
+	top: 6px;
+}
+
+.Switch span.on {
+	left: 9px;
+}
+
+.Switch span.off {
+	left: 6px;
+}
+
+.Switch .Toggle {
+	position: absolute;
+	right: 0;
+	top: 2px;
+	width: 26px;
+	height: 26px;
+	border-radius: 13px;
+	background: #fff;
+	z-index: 999;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition   : all 0.3s ease-in-out;
+	-o-transition     : all 0.3s ease-in-out;
+	-ms-transition    : all 0.3s ease-in-out;
+}
+
+.Switch.list .Toggle { left: 1px; }
+.Switch.card .Toggle { left: 33px; }
+

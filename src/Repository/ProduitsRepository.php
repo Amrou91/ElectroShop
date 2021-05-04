@@ -7,6 +7,7 @@ use App\Entity\Produits;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
+use PhpParser\Node\Stmt\Echo_;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -51,42 +52,44 @@ class ProduitsRepository extends ServiceEntityRepository
     public function Search(SearchData $search)
     {
         $query=$this->createQueryBuilder('p')
-                    ->select('p','c')
-                    ->join('p.sousCategorie', 'c');
+                    // ->select('p','c')
+                    ->join('p.sousCategorie', 's')
+                    ->join('p.marque', 'm')
+                    ->join('p.processeur', 'k')
+                    ->join('p.memoire', 'e')
+                    ->join('p.disqueDur', 'd')
+                    ->join('p.carteGraphique', 'c')
+                    ->join('p.systemeExploitation', 'y');
 
                     if (!empty($search->q)){
                         $query=$query->andWhere('p.libel LIKE :q')
                                      ->setParameter('q',"%{$search->q}%");
                     }
                     if (!empty($search->sousCategories)){
-                        $query=$query->andWhere('c.id IN (:sousCategories)')
+                        $query=$query->andWhere('s.id IN (:sousCategories)')
                                      ->setParameter('sousCategories', $search->sousCategories );
-                    }
+                    } 
 
                     if (!empty($search->marques)){
-                        $query=$query->andWhere('c.id IN (:marques)')
+                        $query=$query->andWhere('m.id IN (:marques)')
                                      ->setParameter('marques', $search->marques );
                     }
 
                     if (!empty($search->processeur)){
-                        $query=$query->andWhere('c.id IN (:processeur)')
+                        $query=$query->andWhere('k.id IN (:processeur)')
                                      ->setParameter('processeur', $search->processeur );
                     }
 
                     if (!empty($search->memoires)){
-                        $query=$query->andWhere('c.id IN (:memoires)')
+                        $query=$query->andWhere('e.id IN (:memoires)')
                                      ->setParameter('memoires', $search->memoires );
                     }
 
                     if (!empty($search->disqueDur)){
-                        $query=$query->andWhere('c.id IN (:disqueDur)')
+                        $query=$query->andWhere('d.id IN (:disqueDur)')
                                      ->setParameter('disqueDur', $search->disqueDur );
                     }
 
-                    if (!empty($search->disqueDur)){
-                        $query=$query->andWhere('c.id IN (:disqueDur)')
-                                     ->setParameter('disqueDur', $search->disqueDur );
-                    }
 
                     if (!empty($search->carteGraphique)){
                         $query=$query->andWhere('c.id IN (:carteGraphique)')
@@ -94,7 +97,7 @@ class ProduitsRepository extends ServiceEntityRepository
                     }
 
                     if (!empty($search->systemeExploitation)){
-                        $query=$query->andWhere('c.id IN (:systemeExploitation)')
+                        $query=$query->andWhere('y.id IN (:systemeExploitation)')
                                      ->setParameter('systemeExploitation', $search->systemeExploitation );
                     }
             
